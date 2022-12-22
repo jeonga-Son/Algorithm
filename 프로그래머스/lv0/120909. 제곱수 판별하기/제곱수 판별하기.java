@@ -1,9 +1,8 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        Double result = Math.sqrt(n);
         
-        if (result == result.intValue()) {
+        if (n % Math.sqrt(n) == 0) {
             answer = 1;
         } else {
             answer = 2;
