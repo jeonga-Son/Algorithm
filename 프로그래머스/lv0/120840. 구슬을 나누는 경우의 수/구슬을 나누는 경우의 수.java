@@ -4,9 +4,8 @@ class Solution {
             return 1;
         } else {
             return combination(n - 1, m - 1) + combination(n - 1, m);
-        }    
+        }
     }
-    
     public int solution(int balls, int share) {
         int answer = 0;
         
