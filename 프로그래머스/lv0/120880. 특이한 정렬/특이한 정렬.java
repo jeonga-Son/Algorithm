@@ -1,29 +1,27 @@
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 class Solution {
-    public Integer[] solution(int[] numlist, int n) {
-        List<Integer> solution = IntStream.of(numlist).boxed().collect(Collectors.toList());
-
-        solution.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                int o1Abs = Math.abs(o1 - n);
-                int o2Abs = Math.abs(o2 - n);
-
-                if (o1Abs == o2Abs) {
-                    if (o1 > o2) return -1;
-                    else if (o1 < o2) return 1;
-                } else {
-                    return o1Abs - o2Abs;
+    public int[] solution(int[] numlist, int n) {
+        int[] answer = new int[numlist.length];
+        int temp = 0;
+        
+        for (int i = 0; i < numlist.length; i++) {
+            for (int j = i; j < numlist.length; j++) {
+                if (Math.abs(numlist[i] - n) > Math.abs(numlist[j] - n)) {
+                    temp = numlist[j];
+                    numlist[j] = numlist[i];
+                    numlist[i] = temp;
                 }
-
-                return 0;
+                
+                if (Math.abs(numlist[i] - n) == Math.abs(numlist[j] - n) && numlist[i] < numlist[j]) {
+                    temp = numlist[j];
+                    numlist[j] = numlist[i];
+                    numlist[i] = temp;
+                }
             }
-        });
-
-        return solution.toArray(new Integer[0]);
+        }
+        
+        answer = numlist;
+        
+        return answer;
     }
 }
+
