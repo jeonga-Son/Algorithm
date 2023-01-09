@@ -11,7 +11,7 @@ class Solution {
         
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
-                for(int k = 0; k < 8; k++) {
+                for (int k = 0; k < 8; k++) {
                     int nx = i + dx[k];
                     int ny = j + dy[k];
                     
@@ -23,7 +23,7 @@ class Solution {
                         checkBoard[i][j] = true;
                     }
                 }
-            }    
+            }
         }
         
         for (int i = 0; i < checkBoard.length; i++) {
