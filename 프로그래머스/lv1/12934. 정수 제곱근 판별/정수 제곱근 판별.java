@@ -1,12 +1,8 @@
 class Solution {
     public long solution(long n) {
-        long answer = -1;
-        long sqrt = (long)Math.sqrt(n);
-        
-        if (sqrt * sqrt == n) {
-            answer = (long)Math.pow(sqrt + 1, 2);
+        if (Math.pow((long)Math.sqrt(n), 2) == n) {
+            return (long) Math.pow(Math.sqrt(n) + 1, 2);
         }
-        
-        return answer;
+        return -1;
     }
 }
