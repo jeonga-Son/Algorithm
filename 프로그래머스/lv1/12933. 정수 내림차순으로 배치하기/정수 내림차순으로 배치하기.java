@@ -2,15 +2,14 @@ import java.util.Arrays;
 
 class Solution {
     public long solution(long n) {
-        long answer = 0;
-        String str = n + "";
-        char[] arr = str.toCharArray();
+        String[] lists = String.valueOf(n).split("");
         
-        Arrays.sort(arr);
+        Arrays.sort(lists);
         
-        StringBuilder value = new StringBuilder(new String(arr));
+        StringBuilder sb = new StringBuilder();
         
-        answer = Long.valueOf(value.reverse().toString());
-        return answer;
+        for (String list : lists) sb.append(list);
+    
+        return Long.parseLong(sb.reverse().toString());
     }
 }
