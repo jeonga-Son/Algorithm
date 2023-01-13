@@ -1,9 +1,11 @@
 class Solution {
     public String solution(String phone_number) {
-        String digits1 = phone_number.substring(0, phone_number.length() - 4).replaceAll("[0-9]", "*");
-        String digits2 = phone_number.substring(phone_number.length() - 4);
-        String answer = digits1 + digits2;
+        char[] ch = phone_number.toCharArray();
         
-        return answer;
+        for (int i = 0; i < phone_number.length() - 4; i++) {
+            ch[i] = '*';
+        }
+        
+        return String.valueOf(ch);
     }
 }
