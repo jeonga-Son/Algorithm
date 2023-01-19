@@ -6,14 +6,14 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
+
         while(true) {
-            String a = br.readLine();
-            if(a.equals(".")) break; 
-            String[] input = a.split("");
-            Stack<String> stack = new Stack<>();
+            String s = br.readLine();
+            if(s.equals(".")) break; 
+            Stack<String> stack = new Stack<String>();
+            String[] digits = s.split("");
             
-             for (String str : input) {
+             for (String str : digits) {
                 if (str.equals("(") || str.equals("[")) stack.push(str); 
                 else if (str.equals(")") && !stack.isEmpty() && stack.peek().equals("("))
                     stack.pop();
