@@ -1,15 +1,14 @@
 class Solution {
     public int solution(int n) {
-        String str = Integer.toString(n, 3);
-        String reverse = "";
+        String a = "";
         
-        for (int i = str.length() - 1; i >= 0 ; i--) {
-            reverse += str.charAt(i) + "";
+        while (n > 0) {
+            a = (n % 3) + a;
+            n /= 3;
         }
         
+        a = new StringBuilder(a).reverse().toString();
         
-        int answer = Integer.parseInt(reverse, 3);
-        
-        return answer;
+        return Integer.parseInt(a, 3);
     }
 }
