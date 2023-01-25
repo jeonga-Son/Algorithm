@@ -1,31 +1,16 @@
 class Solution {
     public int solution(int[][] sizes) {
         int answer = 0;
-        int left = 0;
-        int right = 0;
-        int[][] copy = new int[sizes.length][2];
-        int max1 = 0;
-        int max2 = 0;
+        int length = 0;
+        int height = 0;
         
-        for (int i = 0; i < sizes.length; i++) {
-            left = Math.min(sizes[i][0], sizes[i][1]);
-            right = Math.max(sizes[i][0], sizes[i][1]);
-            
-            copy[i][0] = left;
-            copy[i][1] = right;
+        for (int[] card : sizes) {
+            System.out.println(card[0] + " " + card[1]);
+            length = Math.max(length, Math.max(card[0], card[1]));
+            height = Math.max(height, Math.min(card[0], card[1]));
         }
         
-        for(int i = 0; i < copy.length; i++) {
-            if (copy[i][0] > max1) {
-                max1 = copy[i][0];
-            }
-            
-            if (copy[i][1] > max2) {
-                max2 = copy[i][1];
-            }
-        }
-        
-        answer = max1 * max2;
+        answer = length * height;
         
         return answer;
     }
